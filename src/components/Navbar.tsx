@@ -1,6 +1,6 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "~/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const Navbar = () => {
@@ -12,9 +12,7 @@ const Navbar = () => {
 			<MaxWidthWrapper>
 				<div className="flex h-14 items-center justify-between border-b border-zinc-200">
 					<Link href="/" className="z-40 flex font-semibold">
-						<span className="rounded-md bg-blue-600 px-1 text-white">
-							Case
-						</span>
+						<span className="rounded-md bg-blue-600 px-1 text-white">Case</span>
 						<span className="text-blue-600">tum</span>
 					</Link>
 
@@ -32,7 +30,7 @@ const Navbar = () => {
 								</Link>
 								{isAdmin ? (
 									<Link
-										href="/api/auth/signout"
+										href="/dashboard"
 										className={buttonVariants({
 											size: "sm",
 											variant: "ghost",
@@ -43,11 +41,10 @@ const Navbar = () => {
 								) : null}
 
 								<Link
-									href="/api/auth/signout"
+									href="/configurator/upload"
 									className={buttonVariants({
 										size: "sm",
-										className:
-											"hidden items-center gap-1 sm:flex",
+										className: "hidden items-center gap-1 sm:flex",
 									})}
 								>
 									Create
@@ -66,13 +63,26 @@ const Navbar = () => {
 									Sign Up
 								</Link>
 								<Link
-									href="/api/auth/signout"
+									href="/api/auth/signin"
 									className={buttonVariants({
 										size: "sm",
 										variant: "ghost",
 									})}
 								>
 									Login
+								</Link>
+
+								<div className="hidden h-8 w-px bg-zinc-200 sm:block" />
+
+								<Link
+									href="/configurator/upload"
+									className={buttonVariants({
+										size: "sm",
+										className: "hidden items-center gap-1 sm:flex",
+									})}
+								>
+									Create
+									<ArrowRight className="ml-1.5 h-5 w-5" />
 								</Link>
 							</>
 						)}

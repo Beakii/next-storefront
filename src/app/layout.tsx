@@ -6,8 +6,8 @@ import Navbar from "~/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "MyPick",
-	description: "Custom guitar picks with your own image, style, and flair.",
+	title: "Casetum",
+	description: "Custom cases with your own image, style, and flair.",
 };
 
 export default function RootLayout({
