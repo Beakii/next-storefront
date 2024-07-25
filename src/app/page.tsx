@@ -2,6 +2,8 @@ import MaxWidthWrapper from "~/components/MaxWidthWrapper";
 import { Check, Star } from "lucide-react";
 import Image from "next/image";
 import Phone from "~/components/Phone";
+import { Icons } from "~/components/icons";
+import AnimatedReviews from "~/components/AnimatedReviews";
 
 export default function Home() {
 	return (
@@ -70,10 +72,83 @@ export default function Home() {
 							<Image className="absolute -bottom-6 -left-6 w-20 select-none" src="/line.png" height={200} width={200} alt="Line" />
 							<Image className="absolute -bottom-6 -right-6 w-20 scale-x-[-1] select-none" src="/line.png" height={200} width={200} alt="Line" />
 							<Image className="absolute -left-6 -top-6 w-20 scale-y-[-1] select-none" src="/line.png" height={200} width={200} alt="Line" />
+							<Image className="absolute -right-6 -top-6 w-20 scale-x-[-1] scale-y-[-1] select-none sm:hidden lg:block xl:hidden" src="/line.png" height={200} width={200} alt="Line" />
 							<Phone className="w-64" imgSrc="/Testimonials/5.jpg" imgHeight={800} imgWidth={800} />
 						</div>
 					</div>
 				</MaxWidthWrapper>
+			</section>
+
+			<section className="bg-slate-100 py-24">
+				<MaxWidthWrapper className="flex flex-auto flex-col items-center gap-16 sm:gap-32">
+					<div className="flex flex-col items-center gap-4 sm:gap-6 lg:flex-row">
+						<h2 className="order-1 mt-2 text-balance text-center text-5xl font-bold !leading-tight tracking-tight text-gray-900 md:text-6xl">
+							What our{" "}
+							<span className="relative px-2">
+								customers <Icons.underline className="pointer-events-none absolute inset-x-0 -bottom-6 hidden text-blue-600 sm:block" />
+							</span>{" "}
+							say
+						</h2>
+					</div>
+
+					<div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+						{/* Review 1 */}
+						<div className="flex flex-col gap-4 lg:pr-8 xl:pr-20">
+							<div className="mb-2 flex gap-0.5">
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+							</div>
+							<div className="text-lg leading-8">
+								<p>
+									"Absolutely love my new case! It's so unique and I get compliments on it all the time.{" "}
+									<span className="bg-slate-800 p-0.5 text-white">The quality is amazing and the image looks perfect.</span> I'll definitely be ordering more!"
+								</p>
+							</div>
+							<div className="mt-2 flex gap-4">
+								<Image className="h-12 w-12 rounded-full object-cover" src="/users/user-3.png" height={50} width={50} alt="Testimonial picture 1" />
+								<div className="flex flex-col">
+									<p className="font-semibold">Joanna</p>
+									<div className="flex items-center gap-1.5 text-zinc-600">
+										<Check className="h-4 w-4 stroke-[3px] text-green-600" />
+										<p className="text-sm">Verified Buyer</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{/* Review 2 */}
+						<div className="flex flex-col gap-4 lg:pr-8 xl:pr-20">
+							<div className="mb-2 flex gap-0.5">
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+								<Star className="h-5 w-5 fill-green-600 text-green-600" />
+							</div>
+							<div className="text-lg leading-8">
+								<p>
+									"Absolutely love my new case! It's so unique and I get compliments on it all the time.{" "}
+									<span className="bg-slate-800 p-0.5 text-white">The quality is amazing and the image looks perfect.</span> I'll definitely be ordering more!"
+								</p>
+							</div>
+							<div className="mt-2 flex gap-4">
+								<Image className="h-12 w-12 rounded-full object-cover" src="/users/user-5.jpg" height={50} width={50} alt="Testimonial picture 1" />
+								<div className="flex flex-col">
+									<p className="font-semibold">Jeromiah</p>
+									<div className="flex items-center gap-1.5 text-zinc-600">
+										<Check className="h-4 w-4 stroke-[3px] text-green-600" />
+										<p className="text-sm">Verified Buyer</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</MaxWidthWrapper>
+
+				<AnimatedReviews />
 			</section>
 		</div>
 	);
