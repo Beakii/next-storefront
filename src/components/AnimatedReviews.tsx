@@ -82,7 +82,7 @@ const Review = ({ image, className, ...props }: ReviewProps) => {
 			style={{ animationDelay: delay }}
 			{...props}
 		>
-			<Phone imgSrc={image} imgHeight={800} imgWidth={800} />
+			<Phone imgSrc={image} imgHeight={500} imgWidth={700} />
 		</div>
 	);
 };
@@ -133,7 +133,7 @@ const ReviewGrid = ({ className }: ReviewGridProps) => {
 
 const AnimatedReview = () => {
 	return (
-		<MaxWidthWrapper className="relative max-w-5xl">
+		<MaxWidthWrapper className="relative">
 			<Image
 				className="absolute -left-32 top-1/3 hidden select-none xl:block"
 				src="/what-people-are-buying.png"
