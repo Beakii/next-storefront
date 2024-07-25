@@ -8,7 +8,7 @@
     -   [x] Add Navbar
     -   [x] Style navbar
     -   [x] Add testimonial section
-    -   [ ] Animated Landing Page
+    -   [x] Animated scrolling products
 
 -   [ ] Configurator
 
