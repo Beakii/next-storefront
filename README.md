@@ -13,6 +13,7 @@
 
 -   [ ] Configurator
 
-    -   [ ] Uploader
-    -   [ ] Side panel radio buttons
+    -   [x] Uploader
+    -   [ ] Visual bread-crumb style stepper
     -   [ ] Resize image/Click & Drag
+    -   [ ] Side panel radio buttons
