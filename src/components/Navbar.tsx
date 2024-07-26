@@ -41,7 +41,7 @@ const Navbar = () => {
 								) : null}
 
 								<Link
-									href="/configurator/upload"
+									href="/configure/upload"
 									className={buttonVariants({
 										size: "sm",
 										className: "hidden items-center gap-1 sm:flex",
@@ -75,7 +75,7 @@ const Navbar = () => {
 								<div className="hidden h-8 w-px bg-zinc-200 sm:block" />
 
 								<Link
-									href="/configurator/upload"
+									href="/configure/upload"
 									className={buttonVariants({
 										size: "sm",
 										className: "hidden items-center gap-1 sm:flex",
