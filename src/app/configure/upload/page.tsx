@@ -6,30 +6,49 @@ import Dropzone, { FileRejection } from "react-dropzone";
 import { Image, LoaderPinwheelIcon, MousePointerSquareDashed } from "lucide-react";
 import { Progress } from "~/components/ui/progress";
 import { useUploadThing } from "~/lib/uploadthing";
+import { useRouter } from "next/navigation";
+import { useToast } from "~/components/ui/use-toast";
 
 const Page = () => {
+	const router = useRouter();
+	const { toast } = useToast();
 	const [isMouseDragging, setIsMouseDragging] = useState(false);
-	const [isUploading, setIsUploading] = useState(false);
 	const [uploadProgress, setUploadProgress] = useState(0);
 
-	const {} = useUploadThing("imageUploader", {
-		onClientUploadComplete: ([data]) => {},
+	const { startUpload, isUploading } = useUploadThing("imageUploader", {
+		onClientUploadComplete: ([data]) => {
+			const configId = data?.serverData.configId;
+			startTransition(() => {
+				router.push(`/configure/design/id=${configId}`);
+			});
+		},
+		onUploadProgress(p) {
+			setUploadProgress(p);
+		},
 	});
 
 	const [isPending, startTransition] = useTransition();
 
 	const onDropRejected = (rejectedFiles: FileRejection[]) => {
 		console.log(rejectedFiles);
+		const [file] = rejectedFiles;
+		setIsMouseDragging(false);
+		toast({
+			title: `${file?.file.type} is not supported`,
+			description: "Please only upload PNG, JPEG, JPG or WEBP files",
+			variant: "destructive",
+		});
 	};
 
 	const onDropAccepted = (acceptedFiles: File[]) => {
-		console.log(acceptedFiles);
+		startUpload(acceptedFiles, { configId: undefined });
+		setIsMouseDragging(false);
 	};
 
 	return (
 		<div
 			className={cn(
-				"relative my-16 flex h-full w-full flex-1 flex-col items-center justify-center rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl",
+				"relative my-16 flex h-full w-full flex-1 flex-col items-center justify-center rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 hover:cursor-pointer lg:rounded-2xl",
 				{ "bg-blue-900/10 ring-blue-900/25": isMouseDragging },
 			)}
 		>
