@@ -14,6 +14,8 @@
 -   [ ] Configurator
 
     -   [x] Uploader
-    -   [ ] Visual bread-crumb style stepper
+    -   [x] Visual bread-crumb style stepper
+    -   [ ] Add drizzle
+    -   [ ] Connect to bdodle database (reuse to save costs)
     -   [ ] Resize image/Click & Drag
     -   [ ] Side panel radio buttons
