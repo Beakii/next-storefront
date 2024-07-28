@@ -15,7 +15,7 @@
 
     -   [x] Uploader
     -   [x] Visual bread-crumb style stepper
-    -   [ ] Add drizzle
+    -   [x] Add Prisma
     -   [ ] Connect to bdodle database (reuse to save costs)
     -   [ ] Resize image/Click & Drag
     -   [ ] Side panel radio buttons
