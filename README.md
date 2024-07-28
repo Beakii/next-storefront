@@ -16,6 +16,6 @@
     -   [x] Uploader
     -   [x] Visual bread-crumb style stepper
     -   [x] Add Prisma
-    -   [ ] Connect to bdodle database (reuse to save costs)
+    -   [x] Connect to Neon DB
     -   [ ] Resize image/Click & Drag
     -   [ ] Side panel radio buttons

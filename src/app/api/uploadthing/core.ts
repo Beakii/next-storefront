@@ -1,10 +1,9 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
-import { UploadThingError } from "uploadthing/server";
+import sharp from "sharp";
 import { z } from "zod";
+import { createConfig, updateConfig } from "~/db/queries";
 
 const f = createUploadthing();
-
-const auth = (req: Request) => ({ id: "fakeId" });
 
 export const ourFileRouter = {
 	imageUploader: f({ image: { maxFileSize: "4MB" } })
@@ -14,7 +13,21 @@ export const ourFileRouter = {
 	})
 	.onUploadComplete(async ({ metadata, file }) => {
 		const {configId} = metadata.input;
-		return { configId };
+
+		const res = await fetch(file.url);
+		const buffer = await res.arrayBuffer();
+
+		const imageMetadata = await sharp(buffer).metadata();
+		const { width, height } = imageMetadata;
+
+		if(!configId){
+			const returnedId = await createConfig({file, width, height});
+			return { configId: returnedId };
+		}
+		else {
+			const returnedId = await updateConfig({file, configId});
+			return { configId: returnedId };
+		}
 	}),
 } satisfies FileRouter;
 

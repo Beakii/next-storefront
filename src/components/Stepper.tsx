@@ -25,8 +25,8 @@ const Stepper = () => {
 							<span
 								className={cn("absolute left-0 top-0 h-full w-[5px] bg-white lg:bottom-0 lg:top-auto lg:h-1 lg:w-full", {
 									"bg-zinc-700": !isCurrent && !isCompleted,
-									"bg-orange-400/50": isCurrent,
-									"bg-primary": isCompleted,
+									"bg-primary": isCurrent,
+									"bg-green-600": isCompleted,
 								})}
 							/>
 							<span className={cn(index !== 0 ? "lg:pl-9" : "", "flex items-center px-6 py-4 text-sm font-medium")}>
@@ -43,8 +43,8 @@ const Stepper = () => {
 								<span className="ml-4 mt-0.5 flex h-full min-w-0 flex-col justify-center">
 									<span
 										className={cn("text-sm font-semibold text-zinc-700", {
-											"text-primary": isCompleted,
-											"text-zinc-700": isCurrent,
+											"text-green-600": isCompleted,
+											"text-primary": isCurrent,
 										})}
 									>
 										{step.name}
