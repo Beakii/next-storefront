@@ -17,5 +17,5 @@
     -   [x] Visual bread-crumb style stepper
     -   [x] Add Prisma
     -   [x] Connect to Neon DB
-    -   [ ] Resize image/Click & Drag
+    -   [x] Resize image/Click & Drag
     -   [ ] Side panel radio buttons

@@ -34,3 +34,16 @@ export const updateConfig = async ({configId, file}: UpdateConfigProps) => {
 	});
 	return updatedConfig.id;
 }
+
+
+interface GetOneConfigProps {
+	configId: string;
+}
+export const getOneConfig = async ({configId}: GetOneConfigProps) => {
+	const config = await db.config.findUnique({
+		where: {
+			id: configId,
+		},
+	});
+	return config;
+}
