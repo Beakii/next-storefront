@@ -7,20 +7,22 @@
 // bg-purple-900 border-purple-900
 // bg-pink-900 border-pink-900
 
+import { PRODUCT_PRICES } from "~/app/config/products";
+
 export const COLORS = [
 	{
 		label: "Black",
-		Value: "black",
+		value: "black",
 		tailwind: "zinc-900",
 	},
 	{
 		label: "Blue",
-		Value: "blue",
+		value: "blue",
 		tailwind: "blue-900",
 	},
 	{
-		label: "Purple",
-		Value: "purple",
+		label: "Lavender",
+		value: "lavender",
 		tailwind: "purple-900",
 	},
 ] as const;
@@ -31,27 +33,63 @@ export const MODELS = {
 	options: [
 		{
 			label: "iPhone X",
-			value: "iphone-x",
+			value: "iphonex",
 		},
 		{
 			label: "iPhone 11",
-			value: "iphone-11",
+			value: "iphone11",
 		},
 		{
 			label: "iPhone 12",
-			value: "iphone-12",
+			value: "iphone12",
 		},
 		{
 			label: "iPhone 13",
-			value: "iphone-13",
+			value: "iphone13",
 		},
 		{
 			label: "iPhone 14",
-			value: "iphone-14",
+			value: "iphone14",
 		},
 		{
 			label: "iPhone 15",
-			value: "iphone-15",
+			value: "iphone15",
+		},
+	]
+} as const;
+
+export const MATERIALS = {
+	name: "material",
+	options: [
+		{		
+			label: "Silicone",
+			value: "silicone",
+			description: undefined,
+			price: PRODUCT_PRICES.material.silicone,
+		},
+		{
+			label: "Polycarbonate",
+			value: "polycarbonate",
+			description: "Hard plastic",
+			price: PRODUCT_PRICES.material.polycarbonate,
+		},
+	]
+} as const;
+
+export const FINISHES = {
+	name: "finish",
+	options: [
+		{		
+			label: "Smooth",
+			value: "smooth",
+			description: undefined,
+			price: PRODUCT_PRICES.finish.smooth,
+		},
+		{
+			label: "Textured",
+			value: "textured",
+			description: "Enhanced grip",
+			price: PRODUCT_PRICES.finish.textured,
 		},
 	]
 } as const;

@@ -11,11 +11,35 @@
     -   [x] Animated scrolling products
     -   [x] Call to Action
 
--   [ ] Configurator
+-   [x] Configurator
 
     -   [x] Uploader
     -   [x] Visual bread-crumb style stepper
     -   [x] Add Prisma
     -   [x] Connect to Neon DB
     -   [x] Resize image/Click & Drag
-    -   [ ] Side panel radio buttons
+    -   [x] Side panel radio buttons
+
+-   [ ] Summary page
+
+    -   [ ] some summary page elements
+    -   [ ] some summary page elements
+    -   [ ] some summary page elements
+    -   [ ] some summary page elements
+    -   [ ] some summary page elements
+
+-   [ ] Adding Stripe
+
+    -   [ ] some payment things
+    -   [ ] some payment things
+    -   [ ] some payment things
+    -   [ ] some payment things
+    -   [ ] some payment things
+
+-   [ ] Dashboard
+
+    -   [ ] some dashboard things
+    -   [ ] some dashboard things
+    -   [ ] some dashboard things
+    -   [ ] some dashboard things
+    -   [ ] some dashboard things

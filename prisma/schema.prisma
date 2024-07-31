@@ -13,10 +13,39 @@ datasource db {
     url      = env("DATABASE_URL") // uses connection pooling
 }
 
+enum PhoneModels {
+    iphonex
+    iphone11
+    iphone12
+    iphone13
+    iphone14
+    iphone15
+}
+
+enum CaseMaterial {
+    silicone
+    polycarbonate
+}
+
+enum CaseFinish {
+    smooth
+    textured
+}
+
+enum CaseColor {
+    black
+    blue
+    lavender
+}
+
 model Config {
-    id         String  @id @default(cuid())
-    width      Int
-    height     Int
-    url        String
-    croppedUrl String?
+    id           String        @id @default(cuid())
+    width        Int
+    height       Int
+    url          String
+    model        PhoneModels?
+    caseMaterial CaseMaterial?
+    caseFinish   CaseFinish?
+    caseColor    CaseColor?
+    croppedUrl   String?
 }

@@ -1,6 +1,7 @@
 import "server-only";
 import { db } from ".";
 import { UploadedFileData } from "uploadthing/types";
+import { CaseColor, CaseFinish, CaseMaterial, PhoneModels } from "@prisma/client";
 
 interface CreateConfigProps {
 	file: UploadedFileData;
@@ -30,6 +31,28 @@ export const updateConfig = async ({configId, file}: UpdateConfigProps) => {
 		},
 		data: {
 			croppedUrl: file.url,
+		}
+	});
+	return updatedConfig.id;
+}
+
+interface UpdateSaleSelectionConfigProps {
+	color: CaseColor;
+	finish: CaseFinish;
+	material: CaseMaterial;
+	model: PhoneModels;
+	configId: string;
+}
+export const updateSaleSectionConfig = async ({configId, color, finish, material, model}: UpdateSaleSelectionConfigProps) => {
+	const updatedConfig = await db.config.update({
+		where:{
+			id: configId,
+		},
+		data: {
+			caseColor: color,
+			caseFinish: finish,
+			caseMaterial: material,
+			model: model,
 		}
 	});
 	return updatedConfig.id;
