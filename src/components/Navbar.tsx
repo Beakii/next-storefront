@@ -1,11 +1,19 @@
+"use server";
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "~/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { getServerSession } from "next-auth";
 
-const Navbar = () => {
-	const session = undefined;
-	const isAdmin = true;
+const Navbar = async () => {
+	const session = await getServerSession();
+
+	let isAdmin = false;
+	if (session?.user?.email === "auminist3@gmail.com") {
+		isAdmin = true;
+	} else {
+		isAdmin = false;
+	}
 
 	return (
 		<nav className="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
@@ -54,16 +62,7 @@ const Navbar = () => {
 						) : (
 							<>
 								<Link
-									href="/api/auth/register"
-									className={buttonVariants({
-										size: "sm",
-										variant: "ghost",
-									})}
-								>
-									Sign Up
-								</Link>
-								<Link
-									href="/api/auth/signin"
+									href={"/api/auth/signin"}
 									className={buttonVariants({
 										size: "sm",
 										variant: "ghost",
