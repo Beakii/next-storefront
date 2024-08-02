@@ -1,7 +1,8 @@
 "use server";
+
 import { notFound } from "next/navigation";
 import { getOneConfig } from "~/db/queries";
-import ImageConfigurator from "./ImageConfigurator";
+import CheckoutReview from "./CheckoutReview";
 
 interface PageProps {
 	searchParams: {
@@ -20,9 +21,7 @@ const Page = async ({ searchParams }: PageProps) => {
 		return notFound();
 	}
 
-	const { url, width, height } = config;
-
-	return <ImageConfigurator configId={id} imageDimensions={{ width, height }} url={url} />;
+	return <CheckoutReview config={config} />;
 };
 
 export default Page;

@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 import { Toaster } from "~/components/ui/toaster";
 import Providers from "~/Context/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = IBM_Plex_Sans({
+	subsets: ["latin"],
+	weight: "300",
+});
 
 export const metadata: Metadata = {
 	title: "Casetum",
@@ -20,9 +23,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={font.className}>
 				<Navbar />
-				<main className="flex min-h-[calc(100vh-3.5rem-1px)] flex-col">
+				<main className="grainy-bg flex min-h-[calc(100vh-3.5rem-1px)] flex-col">
 					<div className="flex h-full flex-1 flex-col">
 						<Providers>{children}</Providers>
 					</div>
