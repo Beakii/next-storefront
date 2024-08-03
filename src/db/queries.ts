@@ -70,3 +70,61 @@ export const getOneConfig = async ({configId}: GetOneConfigProps) => {
 	});
 	return config;
 }
+
+
+interface CreateUserProps {
+	userEmail: string;
+}
+export const createUser = async ({ userEmail }: CreateUserProps) => {
+	const user = await db.user.create({
+		data: {
+			email: userEmail,
+		}
+	});
+	return user;
+}
+
+
+interface GetUserByIdProps{
+	userEmail: string;
+}
+export const getUserById = async ({userEmail}: GetUserByIdProps) => {
+	const user = await db.user.findFirst({
+		where: {
+			email: userEmail,
+		}
+	});
+	return user;
+}
+
+
+interface FindFirstOrderProps {
+	userEmail: string;
+	configId: string;
+}
+export const findFirstOrder = async ({userEmail, configId}:FindFirstOrderProps) => {
+	const order = await db.order.findFirst({
+		where:{
+			userEmail: userEmail,
+			configId: configId,
+		}
+	});
+	return order;
+}
+
+
+interface CreateOrderProps {
+	dbPrice: number;
+	userEmail: string;
+	configId: string;
+}
+export const createOrder = async ({dbPrice, userEmail, configId}:CreateOrderProps) => {
+	const order = await db.order.create({
+		data: {
+			amount: dbPrice,
+			userEmail: userEmail,
+			configId: configId,
+		}
+	});
+	return order;
+}

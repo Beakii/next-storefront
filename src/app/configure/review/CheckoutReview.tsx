@@ -1,3 +1,5 @@
+"use client";
+
 import { Config } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
 import { ArrowRight, Check } from "lucide-react";
@@ -6,12 +8,32 @@ import Phone from "~/components/Phone";
 import { Button } from "~/components/ui/button";
 import { cn, formatPrice } from "~/lib/utils";
 import { COLORS, FINISHES, MODELS } from "~/validators/option-validators";
+import { createCheckoutSession } from "./actions";
+import { useRouter } from "next/navigation";
+import { useToast } from "~/components/ui/use-toast";
 
 const CheckoutReview = ({ config }: { config: Config }) => {
-	// const {} = useMutation({
-	// 	mutationKey: ["checkout-session"],
-	// 	mutationFn
-	// });
+	const router = useRouter();
+	const { toast } = useToast();
+
+	const { mutate: createPaymentSession } = useMutation({
+		mutationKey: ["checkout-session"],
+		mutationFn: createCheckoutSession,
+		onSuccess: (url) => {
+			if (url) {
+				router.push(url);
+			} else {
+				throw new Error("Unable to create checkout session");
+			}
+		},
+		onError: (error) => {
+			toast({
+				title: "Error",
+				description: "Something went wrong, please try again.",
+				variant: "destructive",
+			});
+		},
+	});
 
 	const tailwindColor = COLORS.find((color) => color.value === config.caseColor)?.tailwind;
 	const phoneType = MODELS.options.find((model) => model.value === config.model)?.label;
@@ -90,7 +112,7 @@ const CheckoutReview = ({ config }: { config: Config }) => {
 					</div>
 
 					<div className="mt-8 flex justify-end pb-12">
-						<Button className="px-4 sm:px-6 lg:px-8">
+						<Button onClick={() => createPaymentSession({ configId: config.id })} className="px-4 sm:px-6 lg:px-8">
 							Checkout <ArrowRight className="ml-1.5 inline h-5 w-5" />
 						</Button>
 					</div>

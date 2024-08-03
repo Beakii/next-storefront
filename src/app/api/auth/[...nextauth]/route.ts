@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from "next-auth/providers/google";
+import { createUser, getUserById } from '~/db/queries';
 
 export const handler = NextAuth({
 	providers: [
@@ -15,6 +16,24 @@ export const handler = NextAuth({
 			}
 		})
     ],
+	callbacks:{
+		signIn: async ({ user }) => {
+			if (!user?.id || !user.email) {
+				throw new Error('Invalid user data');
+			}
+
+			const existingUser = await getUserById({userEmail: user.email});
+
+			if (!existingUser) {
+				const newUser = await createUser({userEmail: user.email});
+				if(!newUser) {
+					throw new Error('Failed to create user');
+				}
+			}
+
+			return true;
+		}
+	}
 });
 
 export { handler as GET, handler as POST }
