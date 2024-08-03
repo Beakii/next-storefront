@@ -34,7 +34,7 @@ export const createCheckoutSession = async ({configId}:{configId:string}) => {
 		order = await createOrder({dbPrice, userEmail: session.user?.email!, configId});
 	}
 
-	const product = await createStripeProduct({name:"Custom Case", price, image:config.url});
+	const product = await createStripeProduct({name:"Custom Case", price, image:config.croppedUrl!});
 	const stripeSession = await createStripeCheckoutSession({price:product.default_price as string, orderId:order.id, configId, userEmail:session.user?.email!});
 
 	return stripeSession.url;
