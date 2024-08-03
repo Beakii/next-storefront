@@ -20,21 +20,15 @@
     -   [x] Resize image/Click & Drag
     -   [x] Side panel radio buttons
 
--   [ ] Summary page
+-   [x] Summary page
 
-    -   [ ] some summary page elements
-    -   [ ] some summary page elements
-    -   [ ] some summary page elements
-    -   [ ] some summary page elements
-    -   [ ] some summary page elements
-
--   [ ] Adding Stripe
-
-    -   [ ] some payment things
-    -   [ ] some payment things
-    -   [ ] some payment things
-    -   [ ] some payment things
-    -   [ ] some payment things
+    -   [x] Show preview of configured phone + image
+    -   [x] Show description
+    -   [x] Display cost
+    -   [x] Adding Stripe
+    -   [x] Create stripe checkout session
+    -   [x] Create modal to tell user to login to checkout
+    -   [ ] Create an auth callback page
 
 -   [ ] Dashboard
 
