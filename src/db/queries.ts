@@ -128,3 +128,68 @@ export const createOrder = async ({dbPrice, userEmail, configId}:CreateOrderProp
 	});
 	return order;
 }
+
+
+interface UpdateOrderProps {
+	orderId: string;
+	isPaid: boolean;
+	shippingName: string;
+	shippingCity: string;
+	shippingCountry: string;
+	shippingPostalCode: string;
+	shippingStreet: string;
+	shippingState: string;
+	billingName: string;
+	billingCity: string;
+	billingCountry: string;
+	billingPostalCode: string;
+	billingStreet: string;
+	billingState: string;
+}
+export const updateOrder = async ({
+	orderId, 
+	isPaid, 
+	shippingCity, 
+	shippingCountry, 
+	shippingName, 
+	shippingPostalCode, 
+	shippingState,
+	shippingStreet,
+	billingName,
+	billingCity,
+	billingCountry,
+	billingPostalCode,
+	billingState,
+	billingStreet
+}: UpdateOrderProps) => {
+	const updatedOrder = await db.order.update({
+		where: {
+			id: orderId,
+		},
+		data: {
+			isPaid: isPaid,
+			shippingAddress:{
+				create:{
+					name: shippingName,
+					city: shippingCity,
+					country: shippingCountry,
+					zipCode: shippingPostalCode,
+					state: shippingState,
+					street: shippingStreet,
+				}
+			},
+			billingAddress:{
+				create:{
+					name: billingName,
+					city: billingCity,
+					country: billingCountry,
+					zipCode: billingPostalCode,
+					state: billingState,
+					street: billingStreet,
+				}
+			}
+		}
+	})
+
+	return updatedOrder;
+}

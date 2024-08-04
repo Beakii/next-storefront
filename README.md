@@ -28,7 +28,8 @@
     -   [x] Adding Stripe
     -   [x] Create stripe checkout session
     -   [x] Create modal to tell user to login to checkout
-    -   [ ] Create an auth callback page
+    -   [x] Create an auth callback page
+    -   [x] Add stripe webhook page
 
 -   [ ] Dashboard
 
