@@ -16,7 +16,7 @@ export const POST = async (req: NextRequest) => {
 		const event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!);
 
 		if(event.type === "checkout.session.completed"){
-			if(!event.data.object.customer_email){
+			if(!event.data.object.customer_details?.email){
 				throw new Error("No customer email found");
 			}
 
