@@ -22,7 +22,7 @@ const LoginModal = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: Dispatc
 				</DialogHeader>
 
 				<div className="flex items-center justify-center">
-					<GoogleButton type="dark" onClick={() => signIn("google")} />
+					<GoogleButton type="dark" onClick={() => signIn("google", { callbackUrl: "/auth-callback" })} />
 				</div>
 			</DialogContent>
 		</Dialog>
