@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { updateOrder } from "~/db/queries";
 import { stripe } from "~/stripe/stripe";
 
-const POST = async (req: NextRequest) => {
+export const POST = async (req: NextRequest) => {
 	try {
 		const body = await req.text();
 		const signature = headers().get("stripe-signature");
