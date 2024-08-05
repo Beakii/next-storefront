@@ -30,6 +30,7 @@
     -   [x] Create modal to tell user to login to checkout
     -   [x] Create an auth callback page
     -   [x] Add stripe webhook page
+    -   [ ] Add post-payment thank you page
 
 -   [ ] Dashboard
 

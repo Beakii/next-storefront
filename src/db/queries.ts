@@ -100,15 +100,36 @@ export const getUserById = async ({userEmail}: GetUserByIdProps) => {
 
 interface FindFirstOrderProps {
 	userEmail: string;
-	configId: string;
+	configId?: string | undefined;
+	orderId?: string | undefined;
+	includeBilling?: boolean;
+	includeShipping?: boolean;
+	includeConfig?: boolean;
+	includeUser?: boolean;
 }
-export const findFirstOrder = async ({userEmail, configId}:FindFirstOrderProps) => {
+export const getOneOrder = async ({
+	userEmail, 
+	configId, 
+	orderId, 
+	includeBilling = false, 
+	includeConfig = false, 
+	includeShipping = false, 
+	includeUser = false
+}:FindFirstOrderProps) => {
 	const order = await db.order.findFirst({
 		where:{
 			userEmail: userEmail,
 			configId: configId,
+			id: orderId,
+		},
+		include:{
+			billingAddress: includeBilling,
+			shippingAddress: includeShipping,
+			config: includeConfig,
+			user: includeUser,
 		}
 	});
+
 	return order;
 }
 

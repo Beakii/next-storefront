@@ -3,7 +3,7 @@
 import { Order } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { BASE_PRICE, PRODUCT_PRICES } from "~/app/config/products";
-import { createOrder, findFirstOrder, getOneConfig } from "~/db/queries";
+import { createOrder, getOneConfig, getOneOrder } from "~/db/queries";
 import { createStripeCheckoutSession, createStripeProduct } from "~/stripe/stripe";
 
 export const createCheckoutSession = async ({configId}:{configId:string}) => {
@@ -26,7 +26,7 @@ export const createCheckoutSession = async ({configId}:{configId:string}) => {
 	}
 
 	let order:Order | undefined = undefined;
-	const existingOrder = await findFirstOrder({userEmail: session.user?.email!, configId});
+	const existingOrder = await getOneOrder({userEmail: session.user?.email!, configId});
 	if(existingOrder) {
 		order = existingOrder;
 	} else {

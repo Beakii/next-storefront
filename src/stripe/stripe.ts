@@ -32,7 +32,7 @@ interface CreateStripeCheckoutSession {
 }
 export const createStripeCheckoutSession = async ({price, orderId, configId, userEmail}:CreateStripeCheckoutSession) => {
 	const stripeSession = await stripe.checkout.sessions.create({
-		success_url: `${process.env.NEXTAUTH_URL}/checkout/success?orderId=${orderId}`,
+		success_url: `${process.env.NEXTAUTH_URL}/thank-you?orderId=${orderId}`,
 		cancel_url: `${process.env.NEXTAUTH_URL}/configure/review?id=${configId}`,
 		payment_method_types: ["card"],
 		mode: "payment",
