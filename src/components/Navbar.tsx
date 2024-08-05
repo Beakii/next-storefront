@@ -9,7 +9,7 @@ const Navbar = async () => {
 	const session = await getServerSession();
 
 	let isAdmin = false;
-	if (session?.user?.email === "auminist3@gmail.com") {
+	if (session?.user?.email === process.env.ADMIN_EMAIL) {
 		isAdmin = true;
 	} else {
 		isAdmin = false;

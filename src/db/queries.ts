@@ -98,6 +98,33 @@ export const getUserById = async ({userEmail}: GetUserByIdProps) => {
 }
 
 
+export const dashboardGetOrders = async () => {
+	const orders = await db.order.findMany({
+		include:{
+			shippingAddress: true,
+			user: true,
+		},
+		orderBy:{
+			createdAt: "desc",
+		}
+	});
+	return orders;
+}
+
+
+export const getSumOfPaidOrders = async () => {
+	const sum = await db.order.aggregate({
+		_sum: {
+			amount: true,
+		},
+		where:{
+			isPaid: true,
+		}
+	});
+	return sum;
+}
+
+
 interface FindFirstOrderProps {
 	userEmail: string;
 	configId?: string | undefined;

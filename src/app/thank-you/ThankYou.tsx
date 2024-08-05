@@ -11,15 +11,11 @@ const ThankYou = () => {
 	const searchParams = useSearchParams();
 	const orderId = searchParams.get("orderId") || "";
 
-	if (orderId === "") {
-		return <div>invalid order id</div>;
-	}
-
 	const { data } = useQuery({
 		queryKey: ["get-paid-status"],
 		queryFn: async () => await getPaidStatus({ orderId: orderId }),
-		//retry: true,
-		//retryDelay: 1000,
+		retry: true,
+		retryDelay: 1000,
 	});
 
 	if (data === undefined) {
