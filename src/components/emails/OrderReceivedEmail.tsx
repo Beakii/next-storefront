@@ -7,7 +7,7 @@ interface OrderReceivedEmailProps {
 	orderDate: string;
 }
 const OrderReceivedEmail = ({ shippingAddress, orderId, orderDate }: OrderReceivedEmailProps) => {
-	const baseUrl = process.env.NODE_ENV === "production" ? "https://next-storefront-six.vercel.app" : "http://localhost:3000";
+	const baseUrl = process.env.NODE_ENV === "production" ? "https://casetum.vercel.app" : "http://localhost:3000";
 
 	return (
 		<Html>
