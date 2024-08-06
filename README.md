@@ -32,10 +32,13 @@
     -   [x] Add stripe webhook page
     -   [x] Add post-payment thank you page
 
--   [ ] Dashboard
+-   [x] Dashboard
 
-    -   [ ] some dashboard things
-    -   [ ] some dashboard things
-    -   [ ] some dashboard things
-    -   [ ] some dashboard things
-    -   [ ] some dashboard things
+    -   [x] Add metric cards
+    -   [x] Add order table
+    -   [x] Add dropdown to change order status
+
+-   [ ] Misc
+
+    -   [x] Add order email
+    -       [ ] Fix button loading states

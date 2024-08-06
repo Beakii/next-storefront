@@ -1,7 +1,7 @@
 import "server-only";
 import { db } from ".";
 import { UploadedFileData } from "uploadthing/types";
-import { CaseColor, CaseFinish, CaseMaterial, PhoneModels } from "@prisma/client";
+import { CaseColor, CaseFinish, CaseMaterial, OrderStatus, PhoneModels } from "@prisma/client";
 
 interface CreateConfigProps {
 	file: UploadedFileData;
@@ -112,13 +112,44 @@ export const dashboardGetOrders = async () => {
 }
 
 
-export const getSumOfPaidOrders = async () => {
+export const getLastWeeksRevenue = async () => {
 	const sum = await db.order.aggregate({
 		_sum: {
 			amount: true,
 		},
 		where:{
 			isPaid: true,
+			createdAt:{
+				gte: new Date(new Date().setDate(new Date().getDate() - 7)),
+			}
+		}
+	});
+	return sum;
+}
+export const getLastMonthsRevenue = async () => {
+	const sum = await db.order.aggregate({
+		_sum: {
+			amount: true,
+		},
+		where:{
+			isPaid: true,
+			createdAt:{
+				gte: new Date(new Date().setDate(new Date().getDate() - 30)),
+			}
+		}
+	});
+	return sum;
+}
+export const getLastYearsRevenue = async () => {
+	const sum = await db.order.aggregate({
+		_sum: {
+			amount: true,
+		},
+		where:{
+			isPaid: true,
+			createdAt:{
+				gte: new Date(new Date().setDate(new Date().getDate() - 365)),
+			}
 		}
 	});
 	return sum;
@@ -175,6 +206,22 @@ export const createOrder = async ({dbPrice, userEmail, configId}:CreateOrderProp
 		}
 	});
 	return order;
+}
+
+interface UpdateOrderStatusProps {
+	orderId: string;
+	newStatus: OrderStatus;
+}
+export const updateOrderStatus = async ({orderId, newStatus}:UpdateOrderStatusProps) => {
+	const updatedOrder = await db.order.update({
+		where: {
+			id: orderId,
+		},
+		data: {
+			status: newStatus,
+		}
+	});
+	return updatedOrder;
 }
 
 
