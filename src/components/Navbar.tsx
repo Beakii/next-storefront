@@ -52,7 +52,7 @@ const Navbar = async () => {
 									href="/configure/upload"
 									className={buttonVariants({
 										size: "sm",
-										className: "hidden items-center gap-1 sm:flex",
+										className: "flex items-center gap-1",
 									})}
 								>
 									Create
