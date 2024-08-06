@@ -14,6 +14,19 @@ const font = IBM_Plex_Sans({
 export const metadata: Metadata = {
 	title: "Casetum",
 	description: "Custom cases with your own image, style, and flair.",
+	openGraph: {
+		title: "Casetum",
+		description: "Custom cases with your own image, style, and flair.",
+		images: [{ url: "/step-3.png" }],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Casetum",
+		description: "Custom cases with your own image, style, and flair.",
+		creator: "@SomePlaceholderTwitterHandle",
+		images: ["/step-3.png"],
+	},
+	icons: "/favicon.ico",
 };
 
 export default function RootLayout({

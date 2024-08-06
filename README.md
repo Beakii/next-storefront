@@ -38,7 +38,10 @@
     -   [x] Add order table
     -   [x] Add dropdown to change order status
 
--   [ ] Misc
+-   [x] Misc
 
     -   [x] Add order email
-    -   [ ] Fix button loading states
+    -   [x] Fix button loading states
+    -   [x] Misc CSS fixes
+    -   [x] Updated Resend email
+    -   [x] Metadata
