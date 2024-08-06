@@ -20,7 +20,7 @@ const OrderReceivedEmail = ({ shippingAddress, orderId, orderDate }: OrderReceiv
 						<Heading style={global.heading}>Thank you for your order!</Heading>
 						<Text style={global.text}>We're preparing everything for your order! We'll notify when your order ships</Text>
 						<Text style={{ ...global.text, marginTop: 24 }}>
-							If you have any questions regarding your order, reach out to us with your Order #
+							If you have any questions regarding your order, reach out to us with your Order #{orderId}
 						</Text>
 					</Section>
 
@@ -41,8 +41,8 @@ const OrderReceivedEmail = ({ shippingAddress, orderId, orderDate }: OrderReceiv
 								<Text style={global.paragraphWithBold}>Order Number</Text>
 								<Text style={track.number}>{orderId}</Text>
 							</Column>
-							<Column style={{ width: 170 }}>
-								<Text style={global.paragraphWithBold}>Order Number</Text>
+							<Column style={{ marginLeft: 20 }}>
+								<Text style={global.paragraphWithBold}>Order Date</Text>
 								<Text style={track.number}>{orderDate}</Text>
 							</Column>
 						</Row>

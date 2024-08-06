@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 		images: ["/step-3.png"],
 	},
 	icons: "/favicon.ico",
+	metadataBase: new URL("https://casetum.vercel.app/"),
 };
 
 export default function RootLayout({

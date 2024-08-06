@@ -45,3 +45,5 @@
     -   [x] Misc CSS fixes
     -   [x] Updated Resend email
     -   [x] Metadata
+    -   [x] Fix email formatting errors
+    -   [ ] Fix navbar create button visible on small screens
