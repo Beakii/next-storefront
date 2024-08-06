@@ -41,4 +41,4 @@
 -   [ ] Misc
 
     -   [x] Add order email
-    -       [ ] Fix button loading states
+    -   [ ] Fix button loading states
