@@ -182,7 +182,7 @@ const ImageConfigurator = ({ configId, url, imageDimensions }: ImageConfigurator
 				</Rnd>
 			</div>
 
-			<div className="col-span-full flex h-[37.5rem] w-full flex-col bg-white px-20 lg:col-span-1">
+			<div className="col-span-full flex h-[37.5rem] w-full flex-col bg-white px-20 md:px-0 lg:col-span-1">
 				<ScrollArea className="relative flex-1 overflow-auto">
 					<div className="pointer-events-none absolute inset-0 bottom-0 z-10 bg-gradient-to-t from-white/50" />
 					<div className="px-8 pb-12 pt-8">
